@@ -10,7 +10,15 @@ public class Abbreviate {
      */
     public static String abbreviate(String string) {
         // TODO: Write this method.
-        return null;
+
+        String [] vowels = {"a", "i", "u", "e", "o", "A", "I", "U", "E", "O"};
+
+       for (int i = 0 ; i < vowels.length ; i++){
+
+           string = string.replace(vowels[i], "");
+       }
+
+        return string;
     }
 
     public static void main(String[] args) {
