@@ -10,6 +10,11 @@ package radiobutton;
  */
 public class RadioButtonGroup {
 
+
+    private int mNumButtons;
+    private int mInitial;
+    private int mButton;
+
     /**
      * Creates a group of radio buttons.
      *
@@ -20,8 +25,12 @@ public class RadioButtonGroup {
      * @raise RuntimeException
      *   The initial button number is invalid.
      */
-    public RadioButtonGroup(int numButtons, int initial) {
+    public RadioButtonGroup(int numButtons, int initial)
+    {
         // TODO: Implement this method.
+        this.mNumButtons = numButtons;
+        this.mInitial = initial;
+
     }
 
     /**
@@ -40,6 +49,10 @@ public class RadioButtonGroup {
      */
     public void select(int button) {
         // TODO: Implement this method.
+        if (button > mNumButtons){
+            throw new RuntimeException();
+        }
+        this.mButton = button;
     }
 
     /**
@@ -51,9 +64,27 @@ public class RadioButtonGroup {
      */
     public boolean isSelected(int button) {
         // TODO: Implement this method.
-        return false;
+
+        if (button > getNumButtons()){
+            throw new RuntimeException();
+        }
+        if(button == getButton()){
+                return true;
+        }else{
+
+                return false;
+        }
+
+
     }
 
+    public int getNumButtons() {
+        return mNumButtons;
+    }
+
+    public int getButton() {
+        return mButton;
+    }
     // TODO: Add attributes and helper methods as needed.
 
 }
